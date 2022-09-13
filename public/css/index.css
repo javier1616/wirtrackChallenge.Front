@@ -1,0 +1,15 @@
+#navbar{
+    display:inherit; 
+    padding-left:10px;   
+}
+
+.main{
+    margin-top:5vh;
+    padding-left: 4vw;
+    padding-right: 3vw;
+}
+
+.btn-cell{
+    margin-right: 5px;
+    margin-left: 5px;
+}
