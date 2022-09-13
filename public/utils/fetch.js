@@ -34,6 +34,21 @@ const postElementos = async (endpoint,data) => {
     return await response.json();
 }
 
+
+const delElementos = async (endpoint) => {
+
+    let response = await fetch(endpoint,{
+        method:'DEL',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        mode:'cors',
+        cache:'default',
+        credentials:'same-origin'
+    });
+    return await response.json();
+}
+
 const putElementos = async (endpoint,data) => {
 
     let response = await fetch(endpoint,{
@@ -78,5 +93,5 @@ const updateWeather = async (endpoint,data) => {
     }
 }
 
-export {getElementos, postElementos, putElementos, updateWeather}
+export {getElementos, postElementos, putElementos, updateWeather, delElementos}
 

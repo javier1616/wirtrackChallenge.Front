@@ -6,11 +6,12 @@ import { URLbaseWirtrackAPI } from "../settings/variables.js"
 import { ModalViajes } from "../components/modalViajes.js" 
 import { ModalCiudades } from "../components/modalCiudades.js" 
 import { ModalVehiculos } from "../components/modalVehiculos.js" 
+import { ModalReprogramar } from "../components/modalReprogramar.js"
 import { CrearVehiculo } from "../utils/crearVehiculo.js"
 import { CrearViaje } from "../utils/crearViaje.js"
 import { CrearCiudad } from "../utils/crearCiudad.js"
-import { cancelarViaje} from "../utils/cancelarViaje.js"
-import { reprogramarViaje} from "../utils/reprogramarViaje.js"
+import { cancelarViaje } from "../utils/cancelarViaje.js"
+import { reprogramarViaje } from "../utils/reprogramarViaje.js"
 
 
 window.onload = () => {
@@ -36,6 +37,9 @@ window.onload = () => {
     modalCiudades.innerHTML += ModalCiudades
     let modalVehiculos = document.getElementById("modal_vehiculos")
     modalVehiculos.innerHTML += ModalVehiculos
+    let modalReprogramar = document.getElementById("modal_reprogramar")
+    modalReprogramar.innerHTML += ModalReprogramar
+    
 
     //tiene que estar despues de haber insertado los modals
     let botonCrearViaje = document.getElementById("btn_confirmarNuevoViaje")
@@ -59,8 +63,10 @@ window.onload = () => {
                 name: 'Actions',
                 formatter: (cell, row) => {
                     return [gridjs.h('button', {
-                        className: 'btn btn-primary btn-cell',
+                        className: 'btn btn-primary btn-cell btn-reprogramar',
                         id:'btn_reprogramar',
+                        "data-bs-toggle":"modal",
+                        "data-bs-target":"#modalReprogramar",
                         onClick: () => reprogramarViaje(row.cells[0].data)
                         }, 'Reprogramar'),
                         gridjs.h('button', {
@@ -82,7 +88,7 @@ window.onload = () => {
             },
 
         }).render(document.getElementById("main"));
-
+        
         console.log("done")
 
     }, 5000);
@@ -103,5 +109,6 @@ window.onload = () => {
         CrearVehiculo()
     })
 
+    console.log("end code.")
 
 };
