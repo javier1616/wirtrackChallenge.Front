@@ -5,7 +5,7 @@ export const ModalReprogramar =
 
                 <!-- cabecera del diálogo -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Reprogramar Viaje</h4>
+                    <h4 id="reprogram-modal-title" class="modal-title">Reprogramar Viaje</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 

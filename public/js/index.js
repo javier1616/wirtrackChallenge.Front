@@ -8,7 +8,7 @@ import { ModalCiudades } from "../components/modalCiudades.js"
 import { ModalVehiculos } from "../components/modalVehiculos.js" 
 import { ModalReprogramar } from "../components/modalReprogramar.js"
 import { CrearVehiculo } from "../utils/crearVehiculo.js"
-import { CrearViaje } from "../utils/crearViaje.js"
+import { NuevoViaje } from "../utils/crearViaje.js"
 import { CrearCiudad } from "../utils/crearCiudad.js"
 import { cancelarViaje } from "../utils/cancelarViaje.js"
 import { reprogramarViaje } from "../utils/reprogramarViaje.js"
@@ -42,7 +42,7 @@ window.onload = () => {
     
 
     //tiene que estar despues de haber insertado los modals
-    let botonCrearViaje = document.getElementById("btn_confirmarNuevoViaje")
+    let botonCrearViaje = document.getElementById("btn_crearViaje")
     let botonCrearCiudad = document.getElementById("btn_confirmarNuevaCiudad")
     let botonCrearVehiculo = document.getElementById("btn_confirmarNuevoVehiculo")
 
@@ -96,7 +96,7 @@ window.onload = () => {
     
     botonCrearViaje.addEventListener("click",() => {
         console.log("btn viaje clicked")
-        CrearViaje()
+        NuevoViaje()
     })
 
     botonCrearCiudad.addEventListener("click",() => {

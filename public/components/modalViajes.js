@@ -14,21 +14,24 @@ export const ModalViajes =
                         <div class="container-fluid">   
                             <form>
                                 <div class="mb-3 row">
-                                    <label for="toCity" class="col-sm-3 col-form-label">Destino:</label>
+                                    <label for="city" class="col-sm-3 col-form-label">Ingresar destino:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="toCity">
+                                        <select name = "dropdown" id="dropdownBox_city">
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="vehicle" class="col-sm-3 col-form-label">Vehiculo (patente):</label>
+                                    <label for="city" class="col-sm-3 col-form-label">Ingresar vehiculo:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="vehicle">
+                                        <select name = "dropdown" id="dropdownBox_vehicle">
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="date" class="col-sm-3 col-form-label">Fecha:</label>
+                                    <label for="city" class="col-sm-3 col-form-label">Ingresar fecha:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="date">
+                                        <select name = "dropdown" id="dropdownBox_date">
+                                        </select>
                                     </div>
                                 </div>
                                 <!--div class="mb-3 row">
@@ -39,7 +42,7 @@ export const ModalViajes =
                                 </div-->
                                 <div class="mb-3 row">
                                     <div class="offset-sm-3 col-sm-9">
-                                        <button id="btn_confirmarNuevoViaje" type="submit" class="btn btn-primary">Confirmar</button> 
+                                        <button id="btn_confirmarViaje" type="submit" class="btn btn-primary">Confirmar</button> 
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>  
