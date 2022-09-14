@@ -1,6 +1,7 @@
 
-import { getElementos, postElementos } from "../utils/fetch.js"
-import { URLbaseWirtrackAPI } from "../settings/variables.js"
+import { getDatosVehiculos, getDatosCiudades } from "./getDatos.js"
+import { enviarDatosReprogramarViaje } from "./enviarDatosReprogramarViaje.js";
+import { getDatosViajes } from "./getDatos.js"
 
 
 Date.prototype.addDays = function(noOfDays){
@@ -15,6 +16,9 @@ const reprogramarViaje = async (codigo) =>  {
     title.innerHTML = `Reprogramar viaje - Código de viaje: ${codigo}`
 
     console.log("reprogramando viaje...")
+
+    getDatosVehiculos()
+    getDatosCiudades()
 
     const today = new Date()
     
@@ -32,25 +36,9 @@ const reprogramarViaje = async (codigo) =>  {
 
     let botonReprogramarViaje = document.getElementById("btn_confirmarReprogramarViaje")
     botonReprogramarViaje.addEventListener("click", async () => {
-        console.log("btn reprogramarViaje clicked")
-        let trip = await getElementos(URLbaseWirtrackAPI+`/Trips/id?id=${codigo}`)
-
-        let date = document.getElementById("dropdownBox").value
-
-        let body = `{
-            "idDestinationCity": ${trip.idDestinationCity},
-            "idVehicle": ${trip.idVehicle},
-            "dateTrip": "${new Date(date).toISOString()}",
-            "idStatus": ${trip.idStatus},
-            "id": ${trip.id}}`
-    
-        console.log("enviando: ",body)
-        
-        console.log("endpoint: "+URLbaseWirtrackAPI+"/Trips")
-        let jsonUsuario = await putElementos(URLbaseWirtrackAPI+`/Trips?id=${codigo}`,body)
-    
-        console.log("Viaje reprogramado")
-
+            console.log("btn reprogramarViaje clicked")
+            enviarDatosReprogramarViaje(codigo)
+            location.reload()
     })
 
 }

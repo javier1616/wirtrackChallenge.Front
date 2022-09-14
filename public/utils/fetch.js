@@ -38,7 +38,7 @@ const postElementos = async (endpoint,data) => {
 const delElementos = async (endpoint) => {
 
     let response = await fetch(endpoint,{
-        method:'DEL',
+        method:'DELETE',
         headers:{
             'Content-Type': 'application/json',
         },
@@ -54,21 +54,14 @@ const putElementos = async (endpoint,data) => {
     let response = await fetch(endpoint,{
         method:'PUT',
         headers:{
-            'Content-Type' : 'application/json',
+            'Content-Type': 'application/json',
         },
         body: data, // data can be `string` or {object}!
         mode:'cors',
-        cache:'default'
+        cache:'default',
+        credentials:'same-origin'
     });
-    if (response.status === 200 ){
-        return await response.json()
-    }
-    else if (response.status === 201){
-        return await response.json()
-    }
-    else if (response.status === 404){
-        return await {"error":404}
-    }
+    return await response.json();
 }
 
 const updateWeather = async (endpoint,data) => {

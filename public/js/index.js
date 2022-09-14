@@ -12,6 +12,7 @@ import { NuevoViaje } from "../utils/crearViaje.js"
 import { CrearCiudad } from "../utils/crearCiudad.js"
 import { cancelarViaje } from "../utils/cancelarViaje.js"
 import { reprogramarViaje } from "../utils/reprogramarViaje.js"
+import { cancelarRefresh } from "../utils/cancelarRefresh.js"
 
 
 window.onload = () => {
@@ -26,7 +27,7 @@ window.onload = () => {
 
     updateWeather(URLbaseWirtrackAPI+"/cities")
 
-    localStorage.clear()
+    //localStorage.clear()
     getDatosViajes()
 
     let datosParaTabla = []
@@ -88,6 +89,13 @@ window.onload = () => {
             },
 
         }).render(document.getElementById("main"));
+
+        /*let botonCancelar = document.getElementById("btn_cancelar")
+
+        botonCancelar.addEventListener("click",() => {
+            console.log("btn cancelar clicked")
+            cancelarRefresh()
+        })*/
         
         console.log("done")
 
